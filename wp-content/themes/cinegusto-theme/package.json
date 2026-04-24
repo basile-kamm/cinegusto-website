@@ -1,0 +1,16 @@
+{
+  "name": "cinegusto-theme",
+  "version": "1.0.0",
+  "description": "Cinegusto WordPress theme with Vite, Tailwind CSS and Alpine.js",
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.2.4",
+    "alpinejs": "^3.12.0"
+  }
+}

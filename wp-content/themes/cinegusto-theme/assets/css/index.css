@@ -1,5 +1,6 @@
-@import "tailwindcss";
+@import "./fonts.css";
+@import "./tailwind.css";
 
-p {
-  @apply bg-green-500;
+body {
+  @apply font-barlow text-black;
 }

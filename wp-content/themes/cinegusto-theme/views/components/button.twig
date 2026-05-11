@@ -1,0 +1,14 @@
+{% set custom_class = custom_class|default('') %}
+
+{% set btn_class = [
+  'px-4 py-3 font-mazius font-bold text-creme transition-all duration-300',
+  style == 'blue' ? 'bg-blue hover:bg-blue/90' : '',
+  style == 'red' ? 'bg-red hover:bg-red/90' : '',
+  style == 'yellow' ? 'bg-yellow hover:bg-yellow/90' : '',
+  style == 'green' ? 'bg-green hover:bg-green/90' : '',
+  style == 'hollow' ? 'bg-transparent border-1 border-creme text-creme hover:border-2' : '',
+  style == 'hollow-yellow' ? 'bg-transparent border-1 border-yellow text-yellow hover:border-2' : '',
+]|join(' ') %}
+
+
+<a href="{{ url }}" class="{{ btn_class }} {{ custom_class }}">{{ text }}</a>

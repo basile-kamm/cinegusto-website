@@ -1,11 +1,9 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<h2 x-init="foo = 'Hello, Alpine!'" x-text="foo"></h2>
-	<p>{{ qux }}</p>
-	{% include 'components/accordion.twig' %}
-	{% for post in posts %}
-		{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
-	{% endfor %}
+	<p class="text-3xl text-red">asd</p>
+	{% include 'components/button.twig' with {url: '#', text: 'Click me!', style: "green"} %}
+	{% include 'components/card.twig' %}
+	{% include 'components/card.twig' with {is_border_double: true, title: 'Card with double border'} %}
 
 {% endblock %}

@@ -1,0 +1,13 @@
+@layer base {
+  .grid {
+    @apply grid grid-cols-4 gap-x-20 px-8 lg:grid-cols-12;
+  }
+
+  .grid > * {
+    @apply col-span-4 lg:col-span-8 lg:col-start-3 lg:col-end-11;
+  }
+
+  .grid > .width-wide {
+    @apply lg:col-span-10 lg:col-start-2 lg:col-end-12;
+  }
+}

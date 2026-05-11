@@ -1,11 +1,96 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<h1 class="text-4xl text-yellow lg:col-span-9! lg:col-start-1!">Choisissez l’expérience qui vous ressemble</h1>
-	<div class="lg:col-start-3! lg:col-span-9! grid-cols-subgrid">
-		<p class="mt-15 lg:mt-4 lg:col-span-4!">
+	<section class="bg-blue grid text-yellow">
+		<h1 class="text-4xl lg:col-start-2 mb-15 lg:mb-19">
+			Choisissez l’expérience qui vous ressemble
+		</h1>
+		<p class="lg:col-start-3 lg:col-span-4 mb-52 lg:mb-45">
 			Que vous soyez un·e cinéphile gourmand·e, un·e amateur·trice de découvertes culinaires ou simplement en quête d’une soirée inspirante, nous avons conçu des formules adaptées à toutes les envies.
 		</p>
-	</div>
-	.
+		<div class="lg:col-span-4 lg:col-start-3 flex flex-col gap-6 items-start mb-25 lg:mb-30">
+			<h2 class="text-l">L’expérience complète : Film + Repas</h2>
+			<p>Plongez dans l’univers du festival avec une projection suivie d’un repas thématique, conçu par nos chef·fe·s invité·e·s. Chaque menu est inspiré du film projeté, pour une immersion totale où l’écran et l’assiette ne font qu’un.
+			</p>
+			<p>
+				<i>Parfait pour :</i>
+				Les gourmet·te·s, les couples en quête d’une soirée originale, ou les ami·e·s qui aiment partager des moments uniques.
+			</p>
+			{% include "components/button.twig" with { text: "Acheter un billet", style: "yellow", href: billeterie_link, custom_class: "text-blue!" } %}
+		</div>
+		<div class="lg:col-span-4 lg:col-start-7 flex flex-col gap-6 items-start mb-25 lg:mb-30">
+			<h2 class="text-l">À la carte : Films uniquement</h2>
+			<p>Si vous préférez vous concentrer sur les films, optez pour l’accès aux projections sans repas. Une manière flexible de découvrir notre sélection, des classiques aux pépites méconnues.
+			</p>
+			<p>
+				<i>Parfait pour :</i>
+				Les cinéphiles, les habitué·e·s des festivals, ou celles et ceux qui veulent composer leur propre parcours.
+			</p>
+			{% include "components/button.twig" with { text: "Acheter un billet", style: "yellow", href: billeterie_link, custom_class: "text-blue!" } %}
+		</div>
+		<div class="lg:col-span-4 lg:col-start-3 flex flex-col gap-6 items-start mb-25 lg:mb-30">
+			<h2 class="text-l">L’immersion totale : Pass Premium</h2>
+			<p>Le Pass Premium offre un accès illimité aux films et à 4 repas thématiques de votre choix. Une formule idéale pour explorer le festival en profondeur, sans se soucier des réservations.
+			</p>
+			<p>
+				<i>Parfait pour :</i>
+				Les festivalier·ère·s assidu·e·s, les groupes d’ami·e·s, ou celles et ceux qui veulent une expérience clé en main.
+			</p>
+			{% include "components/button.twig" with { text: "Acheter un billet", style: "yellow", href: billeterie_link, custom_class: "text-blue!" } %}
+		</div>
+		<div class="lg:col-span-4 lg:col-start-7 flex flex-col gap-6 items-start mb-25 lg:mb-30">
+			<h2 class="text-l">Le festival chez vous : Plateforme VOD</h2>
+			<p>Avec notre plateforme VOD, revivez l’intégralité du festival depuis chez vous. Accédez à tous les films projetés en salle, ainsi qu’à une sélection exclusive de titres inédits, accompagnés de recettes à recréer chez soi.
+			</p>
+			<p>
+				<i>Parfait pour :</i>
+				Les habitante·s hors région, les familles, ou celles et ceux qui veulent prolonger l’expérience après le festival.
+			</p>
+			{% include "components/button.twig" with { text: "Acheter un billet", style: "yellow", href: billeterie_link, custom_class: "text-blue!" } %}
+		</div>
+		<section>
+			<h2 class="text-2xl mb-6">Grille tarifaire du festival</h2>
+			<table class="w-full mb-15 lg:mb-20 ">
+				<thead class="text-l border-b border-yellow text-left font-mazius">
+					<tr>
+						<th>Formule</th>
+						<th>Prix</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for fare in post.main_fares %}
+						<tr class=" border-b-[0.5px] border-yellow last:border-0">
+							<td class="py-1">{{ fare.title }}</td>
+							<td>{{ fare.price }}</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<h2 class="text-xl mb-6">Grille tarifaire de la plateforme VOD</h2>
+			<table class="w-full mb-15 lg:mb-20 ">
+				<thead class="text-l border-b border-yellow text-left font-mazius">
+					<tr>
+						<th>VOD</th>
+						<th class="max-md:hidden">Limite d'accès</th>
+						<th>Prix</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for fare in post.vod_fares %}
+						<tr class=" border-b-[0.5px] border-yellow last:border-0">
+							<td class="py-1">{{ fare.title }}
+								<br><i class="md:hidden">{{ fare.time_limit }}</i>
+							</td>
+							<td class="max-md:hidden">{{ fare.time_limit }}</td>
+							<td>{{ fare.price }}</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<div class="flex mb-20 lg:mb-30 gap-6 max-md:flex-col md:justify-center">
+				{% include "components/button.twig" with { text: "Vers la billeterie", style: "yellow", href: billeterie_link, custom_class: "text-blue!" } %}
+				{% include "components/button.twig" with { text: "Vers la billeterie", style: "hollow-yellow", href: billeterie_link, custom_class: "" } %}
+			</div>
+		</section>
+	</section>
 {% endblock %}

@@ -1,6 +1,7 @@
 @import "./fonts.css";
 @import "./tailwind.css";
 @import "./custom-class.css";
+@import "./grid.css";
 
 body {
   @apply font-barlow text-black text-base;

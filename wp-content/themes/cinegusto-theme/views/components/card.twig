@@ -1,11 +1,13 @@
 {% set is_border_double = is_border_double|default(false) %}
 {% set container_class = container_class|default('') %}
+{% set padding_outside = padding_outside|default('p-3 md:p-5') %}
+{% set padding = padding|default('p-3 md:p-5') %}
 
-<div class="card p-5 {{ container_class }}">
+<div class="card {{ padding_outside }} {{ container_class }}">
 	{% if is_border_double %}
 		<div class="border border-black p-2">
 		{% endif %}
-		<div class="p-5 border border-black">
+		<div class="{{ padding }} border border-black">
 			{% block content %}
 				<h2 class="text-xl">{{ title }}</h2>
 				<p class="text-base">{{text}}</p>

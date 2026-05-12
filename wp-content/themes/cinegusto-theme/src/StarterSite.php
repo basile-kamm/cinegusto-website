@@ -25,6 +25,8 @@ class StarterSite extends Site {
 		$theme_uri = get_template_directory_uri();
     $theme_path = get_template_directory();
 
+
+
     // CSS compilé depuis SCSS
     if (file_exists($theme_path . '/dist/css/style.css')) {
         wp_enqueue_style(
@@ -37,12 +39,12 @@ class StarterSite extends Site {
 
     // JS
     if (file_exists($theme_path . '/dist/js/main.js')) {
+
         wp_enqueue_script(
             'theme-script',
             $theme_uri . '/dist/js/main.js',
             [],
-            filemtime($theme_path . '/dist/js/main.js'),
-            true
+            filemtime($theme_path . '/dist/js/main.js')
         );
     }
   }
@@ -70,8 +72,12 @@ class StarterSite extends Site {
 		$context['foo']   = 'bar';
 		$context['stuff'] = 'I am a value set in your functions.php file';
 		$context['notes'] = 'These values are available everytime you call Timber::context();';
-		$context['menu']  = Timber::get_menu();
+		$context['main_menu']  = Timber::get_menu("Main Menu");
+		$context['footer_menu']  = Timber::get_menu("Footer Menu");
 		$context['site']  = $this;
+		$context['theme_link'] = get_template_directory_uri();
+		$context['billeterie_link'] = '#';
+
 
 		return $context;
 	}

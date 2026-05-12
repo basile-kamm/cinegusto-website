@@ -2,6 +2,7 @@
 @import "./tailwind.css";
 @import "./custom-class.css";
 @import "./grid.css";
+@import "./accordion.css";
 
 body {
   @apply font-barlow text-black text-base;
@@ -12,6 +13,17 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.text-4xl,
+.text-3xl,
+.text-2xl,
+.text-xl,
+.text-l,
+.text-main-menu,
+.text-footer-menu {
   @apply font-mazius;
+}
+
+*::selection {
+  @apply bg-red text-creme;
 }

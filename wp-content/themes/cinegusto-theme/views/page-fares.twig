@@ -1,7 +1,12 @@
 {% extends "base.twig" %}
 
+{% block background_color %}bg-blue
+{% endblock %}
+{% block background_image %}opacity-15 mix-blend-color-burn
+{% endblock %}
+
 {% block content %}
-	<section class="bg-blue grid text-yellow">
+	<section class="grid basic-page text-yellow">
 		<h1 class="text-4xl lg:col-start-2 mb-15 lg:mb-19">
 			Choisissez l’expérience qui vous ressemble
 		</h1>
@@ -51,7 +56,7 @@
 		<section>
 			<h2 class="text-2xl mb-6">Grille tarifaire du festival</h2>
 			<table class="w-full mb-15 lg:mb-20 ">
-				<thead class="text-l border-b border-yellow text-left font-mazius">
+				<thead class="text-l border-b border-yellow text-left">
 					<tr>
 						<th>Formule</th>
 						<th>Prix</th>
@@ -68,7 +73,7 @@
 			</table>
 			<h2 class="text-xl mb-6">Grille tarifaire de la plateforme VOD</h2>
 			<table class="w-full mb-15 lg:mb-20 ">
-				<thead class="text-l border-b border-yellow text-left font-mazius">
+				<thead class="text-l border-b border-yellow text-left">
 					<tr>
 						<th>VOD</th>
 						<th class="max-md:hidden">Limite d'accès</th>

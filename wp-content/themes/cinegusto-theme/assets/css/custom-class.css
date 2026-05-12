@@ -2,3 +2,15 @@
   @apply relative bg-creme shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] *:relative *:z-1;
   @apply after:absolute after:inset-0 after:bg-[url(../img/texture-papier.jpg)] after:bg-center after:bg-cover after:bg-no-repeat after:bg-blend-multiply after:opacity-30;
 }
+
+.background {
+  @apply absolute inset-0 -z-10;
+}
+
+.background.image {
+  @apply bg-[url(../img/bg.jpg)] bg-top bg-[length:100%_auto] bg-repeat-y;
+}
+
+.basic-page {
+  @apply pt-30 md:pt-50;
+}

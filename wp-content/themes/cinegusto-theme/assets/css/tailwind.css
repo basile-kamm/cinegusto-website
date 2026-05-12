@@ -26,4 +26,5 @@
   --text-base: clamp(1rem, 0.4vw + 0.89rem, 1.25rem);
   --text-main-menu: clamp(1.5rem, -0.4vw + 1.86rem, 1.75rem);
   --text-footer-menu: 1.25rem;
+  --text-footer-menu--font-weight: 700;
 }

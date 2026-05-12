@@ -1,0 +1,62 @@
+{% set menu_item_class = "text-main-menu md:hover:underline" %}
+
+<header class="fixed top-0 left-0 w-full z-5" x-data="{ isMenuOpen: false, isLangOpen: false }">
+	{% embed 'components/card.twig' with { padding_outside: 'p-3'} %}
+		{% block content %}
+			<div class="flex justify-between">
+				<a href="/" class="h-10">
+					<img src="{{ theme_link }}/assets/img/logo-simple.png" alt="" class="h-full w-full object-contain">
+				</a>
+				<nav id="nav-main" role="navigation" class="flex gap-4 max-lg:hidden items-baseline">
+					{% for item in main_menu.items %}
+						<a href="{{ item.url }}" class="{{ menu_item_class }}">{{ item.title }}</a>
+					{% endfor %}
+					<button class="{{ menu_item_class }} cursor-pointer" @click="isLangOpen = true">FR</button>
+				</nav>
+				<button class="lg:hidden cursor-pointer" @click="isMenuOpen = true">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.633h16.5M3.75 12h16.5m-16.5 5.367h16.5"/>
+					</svg>
+					<span class="sr-only">Menu</span>
+				</button>
+			</div>
+		{% endblock %}
+	{% endembed %}
+	<div
+		class="modal-cont fixed top-0 left-0 w-full h-full bg-black/20 flex items-center justify-center z-10" x-cloak x-show="isMenuOpen || isLangOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 " x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 " x-transition:leave-end="opacity-0">
+		{# Mobile Menu MODAL #}
+		<div class="mobile-menu w-120 -rotate-3" @click.outside="isLangOpen = false" x-cloak x-show="isMenuOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-x-3/1 rotate-20" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 " x-transition:leave-end="opacity-0 translate-x-3/1 rotate-20">
+			{% embed 'components/card.twig' with {is_border_double: true, padding_outside: 'p-3'} %}
+				{% block content %}
+					<nav id="nav-main" role="navigation" class="flex flex-col gap-4 items-baseline">
+						<button class="self-end font-mazius mb-4 underline" @click="isMenuOpen = false">Fermer</button>
+						{% for item in main_menu.items %}
+							<a href="{{ item.url }}" class="{{ menu_item_class }}">{{ item.title }}</a>
+						{% endfor %}
+						<div class="flex gap-3 w-full mt-3">
+							<a href="" class="{{ menu_item_class }} font-bold">FR</a>
+							<a href="" class="{{ menu_item_class }}">EN</a>
+							<a href="" class="{{ menu_item_class }}">DE</a>
+							<a href="" class="{{ menu_item_class }}">IT</a>
+						</div>
+					</nav>
+				{% endblock %}
+			{% endembed %}
+		</div>
+		{# Language Menu MODAL #}
+		<div class="lang w-90 rotate-3" x-cloak x-show="isLangOpen" @click.outside="isLangOpen = false" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-x-3/1 rotate-20" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 " x-transition:leave-end="opacity-0 translate-x-3/1 rotate-20">
+			{% embed 'components/card.twig' with {is_border_double: true, padding_outside: 'p-3'} %}
+				{% block content %}
+					<nav id="nav-main" role="language" class="flex flex-col gap-4 items-baseline">
+						<button class="self-end font-mazius mb-4 cursor-pointer hover:underline" @click="isLangOpen = false">Fermer</button>
+						<p>Choisissez votre langue</p>
+						<a href="" class="{{ menu_item_class }} font-bold">Français</a>
+						<a href="" class="{{ menu_item_class }}">English</a>
+						<a href="" class="{{ menu_item_class }}">Deutsch</a>
+						<a href="" class="{{ menu_item_class }}">Italiano</a>
+					</nav>
+				{% endblock %}
+			{% endembed %}
+		</div>
+	</div>
+</header>

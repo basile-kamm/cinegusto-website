@@ -1,0 +1,124 @@
+{% extends "base.twig" %}
+
+{% block background_color %}bg-green
+{% endblock %}
+{% block background_image %}opacity-15 mix-blend-color-burn
+{% endblock %}
+
+{% set nav_item = 'text-l hover:underline' %}
+
+{% block content %}
+	<section class="grid basic-page text-yellow">
+		<div class="lg:col-start-2 lg:col-span-8 flex justify-between items-baseline mb-40 lg:mb-60">
+			<h1 class="text-4xl">
+				Infos
+			</h1>
+			<nav>
+				<ul class="flex gap-6">
+					<li>
+						<a href="#acces" class="{{ nav_item }}">Accès</a>
+					</li>
+					<li>
+						<a href="#plan" class="{{ nav_item }}">Plan</a>
+					</li>
+					<li>
+						<a href="#accessibilite" class="{{ nav_item }}">Accessibilité</a>
+					</li>
+					<li>
+						<a href="#faq" class="{{ nav_item }}">FAQ</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+
+		<h2 class="text-2xl mb-20 lg:mb-25">Bien préparer son festival</h2>
+		<div class="lg:col-span-4 lg:col-start-3 flex flex-col gap-6">
+			<p>Pour les formules incluant un repas, le nombre de places est limité. Il est conseillé de réserver. Après votre achat, vous recevez une confirmation avec toutes les informations nécessaires pour profiter pleinement de votre expérience.
+			</p>
+			<p>
+				<span class="text-l">Arrivée</span>
+				: Présentez-vous 30 min avant les projections, des animations vous accompagneront durant l’attente.</p>
+			<p>À votre arrivée, des points d’accueil sont à votre disposition pour vous orienter. Une signalétique claire vous guide entre les salles de projection. En cas de doute, notre équipe, présente tout au long du festival, vous renseignera volontiers.</p>
+		</div>
+		<div class="lg:col-span-4 flex flex-col gap-6">
+			<p>
+				<span class="text-l">Pass</span>
+				: Optez pour un Pass journée ou Pass premium si vous souhaitez explorer plusieurs films et repas sans contrainte.
+			</p>
+			<p>
+				<span class="text-l">Allergies/intolérances</span>
+				: Signalez-les lors de la réservation. Nos chef·fe·s font tout leur possible pour adapter les plats sur demande.
+			</p>
+			<p>
+				<span class="text-l">Végétarien·e</span>
+				: tous les menus proposent une alternative végétarienne originale et délicieuse.
+			</p>
+		</div>
+
+		<section id="acces" class="lg:col-span-6 lg:col-start-3">
+			<h2 class="text-2xl mt-30 mb-15">Accès</h2>
+			<p class="mb-6">Plusieurs solutions de stationnement sont à votre disposition, aussi bien en ville qu’à proximité du CO2 :</p>
+			<ul class="list-disc mb-15 pl-6 flex flex-col gap-3">
+				<li>Parkings publics disponibles dans la ville de Bulle (parkings couverts et extérieurs répartis dans le centre et à proximité des axes principaux)</li>
+				<li>Places de stationnement situées autour du CO2</li>
+				<li>Zones de parcage indiquées spécialement pour les visiteurs de l’événement près de l’autoroute</li>
+				<li>Mise en place de bus navettes gratuits reliant les parkings officiels au centre ville, permettant un accès simple et rapide sans contrainte de circulation ou de stationnement</li>
+			</ul>
+		</section>
+		<section id="plan" class="lg:col-span-10 lg:col-start-3 mb-30 mt-30">
+			<h2 class="text-2xl  mb-15">Salles de projection
+			</h2>
+			<div class="flex max-md:flex-col gap-5">
+				<div class="flex flex-col gap-3">
+					<div>
+						<p class="text-l">Cinéma Le Prado</p>
+						<p>Rue de la Lécheretta 8 1630 Bulle</p>
+					</div>
+					<div>
+						<p class="text-l">Centre Culturel Ebullition
+						</p>
+						<p>Rue de Vevey 34 1630 Bulle</p>
+					</div>
+					<div>
+						<p class="text-l">Salle CO2
+						</p>
+						<p>Rte de la Ronclina 4 1635 La Tour-de-Trême</p>
+					</div>
+					<h2 class="text-xl mt-4">Lieu de restauration</h2>
+					<div>
+						<p class="text-l">Parvis de la salle CO2
+						</p>
+						<p>(repas servi sous tente)
+							<br>Rte de la Ronclina 4 1635 La Tour-de-Trême</p>
+					</div>
+				</div>
+				<iframe src="https://www.google.com/maps/d/embed?mid=1NVK2fbbAC-24OhTutPTVpLZ0E1dYfB4&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
+			</div>
+		</section>
+		<section id="accessibilite" class="mt-30">
+			<h2 class="text-2xl mb-15">Accessibilité</h2>
+			<p class="mb-6">Le festival est accessible aux personnes à mobilité réduite, avec des parcours adaptés entre les lieux.</p>
+			<h3 class="text-l">Accès pour les personnes à mobilité réduite</h3>
+			<ul class="list-disc mb-15 pl-6 flex flex-col gap-3 mb-6">
+				<li>Toutes les salles de projection et la cantine sont accessibles en fauteuil roulant.</li>
+				<li>Des ascenseurs ou accès de plain-pied sont disponibles selon les lieux.</li>
+				<li>Le personnel d’accueil est formé pour accompagner et orienter les personnes en cas de besoin.</li>
+			</ul>
+			<h3 class="text-l">Déplacements entre les lieux</h3>
+			<ul class="list-disc mb-15 pl-6 flex flex-col gap-3 mb-6">
+				<li>Les différents sites du festival sont situés à distance raisonnable les uns des autres.</li>
+				<li>Les parcours sont signalés et privilégient des itinéraires accessibles.</li>
+				<li>Des arrêts de bus et la gare CFF à proximité permettent de limiter les déplacements à pied.</li>
+			</ul>
+			<p>Une signalétique est mise en place sur l’ensemble du festival afin d’orienter le public.</p>
+		</section>
+		<section id="faq" class="mt-30 mb-30">
+			<h2 class="text-2xl mb-15">FAQ</h2>
+			<div class="flex flex-col gap-3 mb-10">
+				{% for item in post.question %}
+					{% include 'components/accordion.twig' with { title: item.title, text: item.answer } %}
+				{% endfor %}
+			</div>
+			<p>Vous avez d’autres questions ? N’hésitez pas à nous contacter via notre formulaire de contact ou par téléphone au +41 123 456 789. Notre équipe se fera un plaisir de vous aider à préparer votre expérience au festival.</p>
+		</section>
+	{% endblock %}

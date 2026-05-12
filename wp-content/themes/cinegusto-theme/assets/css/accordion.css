@@ -1,0 +1,11 @@
+.accordion-content > * {
+  @apply mb-3;
+}
+
+.accordion-content ul {
+  @apply list-disc list-inside;
+}
+
+.accordion-content strong {
+  @apply text-l font-mazius;
+}

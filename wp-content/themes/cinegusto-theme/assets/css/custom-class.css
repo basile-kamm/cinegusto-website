@@ -1,6 +1,6 @@
 .card {
   @apply relative bg-creme shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] *:relative *:z-1;
-  @apply after:absolute after:inset-0 after:bg-[url(../img/texture-papier.jpg)] after:bg-center after:bg-cover after:bg-no-repeat after:bg-blend-multiply after:opacity-30;
+  @apply after:absolute after:inset-0 after:bg-[url(../img/texture-papier.jpg)] after:bg-top after:bg-repeat-y after:bg-[length:100%_auto] after:bg-blend-multiply after:opacity-30;
 }
 
 .background {

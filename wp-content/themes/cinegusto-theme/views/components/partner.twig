@@ -1,0 +1,18 @@
+{% set top_margin = "mt-30 lg:mt-80" %}
+{% set image_class = "lg:col-span-2 max-w-50 max-md:w-35 hover:scale-105 hover:-rotate-3 transition-transform duration-300" %}
+
+<h2 class="text-2xl lg:col-span-4 lg:col-start-2 {{ top_margin }} mb-10 lg:mb-20">Partenaires</h2>
+<div class="flex justify-between items-center gap-6 lg:col-span-10 lg:col-start-2 max-lg:flex-wrap gap-y-20">
+	<a href="https://www.bulle.ch/" target="_blank" class="{{ image_class }} lg:col-start-2">
+		<img src="{{theme_link}}/assets/img/partner/logo-bulle.webp" alt="Logo de la Ville de Bulle">
+	</a>
+	<a href="https://gastrosuisse.ch/" target="_blank" class="{{ image_class }} lg:col-start-5">
+		<img src="{{theme_link}}/assets/img/partner/logo-gastro_suisse.webp" alt="Logo de GastroSuisse">
+	</a>
+	<a href="https://www.loro.ch/" target="_blank" class="{{ image_class }} lg:col-start-8">
+		<img src="{{theme_link}}/assets/img/partner/logo-loro.webp" alt="Logo de la Lotterie Romande">
+	</a>
+	<a href="https://fribourg.ch/" target="_blank" class="{{ image_class }} lg:col-start-11">
+		<img src="{{theme_link}}/assets/img/partner/logo-fribourg.webp" alt="Logo de la Région de Fribourg">
+	</a>
+</div>

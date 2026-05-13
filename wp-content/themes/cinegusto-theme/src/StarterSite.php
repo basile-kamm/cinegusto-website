@@ -77,7 +77,13 @@ class StarterSite extends Site {
 		$context['site']  = $this;
 		$context['theme_link'] = get_template_directory_uri();
 		$context['billeterie_link'] = '#';
+		$context['vod_link'] = '#';
 
+		$context['thematiques'] = Timber::get_posts([
+			'post_type' => 'thematiques',
+			'posts_per_page' => -1,
+  		'order' => 'ASC',
+		]);
 
 		return $context;
 	}

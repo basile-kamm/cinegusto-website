@@ -1,16 +1,15 @@
-{% set footer_item_class = "text-footer-menu max-md:underline md:hover:underline" %}
+{% set footer_item_class = "text-footer-menu max-md:underline md:hover:underline origin-bottom-left md:hover:scale-103 md:hover:-rotate-3 transition-transform duration-300" %}
 
 <footer>
 	{% embed 'components/card.twig' with { padding_outside: 'p-3'} %}
 		{% block content %}
 			<div class="grid">
-				<a href="/" class="col-span-3 lg:col-span-3 mt-10 mb-15">
+				<a href="/" class="col-span-3 lg:col-span-3 mt-10 mb-15 hover:scale-103 hover:-rotate-3 transition-transform duration-300">
 					<img src="{{ theme_link }}/assets/img/logo-full.png" alt="" class="">
 				</a>
 				<div class="md:col-span-2 max-md:mb-10 lg:col-start-1">
 					<p class="text-l ">Festival CinéGusto</p>
-					<p>Case Postale
-						<br>
+					<p>
 						Rue de la Sionge 12
 						<br>
 						1630 Bulle</p>

@@ -1,26 +1,87 @@
 {% extends "base.twig" %}
 
+{% set days = get_f %}
+
 {% block content %}
-	<div class="content-wrapper">
-		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-			<section class="article-content">
-				<h1 class="article-h1">{{post.title}}</h1>
-				<div class="article-body">
-					{{post.content}}
+	<section class="banner h-[calc(100vh-64px)] flex items-center justify-center mx-10">
+		{% embed 'components/card.twig'  with { padding_outside: ' p-2 md:p-3'} %}
+			{% block content %}
+				<div class="flex flex-col gap-4 items-center text-center">
+					<h1 class="text-3xl">CinéGusto</h1>
+					<p>
+						Une thématique par jour, des films pour l'explorer, un menu pour la savourer.
+					</p>
+					<p class="text-l">Du 8 au 11 septembre 2027</p>
+					<p class="text-l">Bulle - La-Tour-de-Trême</p>
 				</div>
-				<h1>test</h1>
-				<h1>test</h1>
-				<h1>test</h1>
-				<h1>test</h1>
-				<h1>test</h1>
-				<h1>test</h1>
-				<h1>test</h1>
-				<h1>test</h1>
-				<h1>test</h1>
-				<h1>test</h1>
-				<h1 class="mt-100">test</h1>
-			</section>
-		</article>
-	</div>
-	<!-- /content-wrapper -->
+			{% endblock %}
+		{% endembed %}
+	</section>
+	<section class="grid items-start pb-50">
+		{% for thematique in thematiques %}
+			{% embed 'components/card.twig' with { is_border_double: true, container_class: 'col-span-5 col odd:lg:col-start-2 even:lg:col-start-7' } %}
+				{% block content %}
+					<div class="flex flex-col gap-8 lg:gap-10">
+						<h2 class="text-xl font-normal">{{ thematique.theme_title }}</h2>
+						<p class="text-base">{{ thematique.theme_description }}</p>
+						<a href="/programme" class="text-l underline lg:hidden">Voir ce qui mijote</a>
+					</div>
+				{% endblock %}
+			{% endembed %}
+		{% endfor %}
+	</section>
+	<section class="relative">
+		<div class="background bg-red"></div>
+		<div class="background image edelweiss opacity-20"></div>
+		<div class="absolute top-0 left-0 w-full flex -translate-y-1/2 justify-center no-wrap">
+			{% for i in 1..4 %}
+				<div class="size-[14.14vw] shrink-0 flex items-center justify-center">
+					<div class="size-[10vw] rotate-45 bg-creme"></div>
+				</div>
+				<div class="size-[14.14vw] shrink-0 flex items-center justify-center">
+					<div class="size-[10vw] rotate-45 bg-creme p-3">
+						<div class="h-full w-full border-3 border-red"></div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+
+		<div class="grid text-creme pt-50 pb-30">
+			<h2 class="text-2xl lg:col-span-4 lg:col-start-2 ">À propos de CinéGusto</h2>
+			<div class="lg:col-span-6 mt-20">
+				<p class="">
+					CinéGusto est le premier festival suisse à marier cinéma et gastronomie. Installé au cœur de la ville de Bulle, en Gruyère, il propose une programmation où chaque film est un voyage culinaire, et chaque repas, une extension de l'écran. Pendant quatre jours, le public est invité à explorer des récits où la nourriture est bien plus qu'un décor : elle est mémoire, résistance, passion ou héritage.
+					<br>Ici, les films cultes et les pépites méconnues éveillent les sens, tandis que des chef·fe·s étoilé·e·s transforment les recettes du grand écran en expériences gustatives uniques, entre tradition et audace, pour une immersion totale où chaque détail compte.
+				</p>
+				<div class="flex max-md:flex-col gap-4 mt-10 items-start">
+					{% include 'components/button.twig' with { text: 'En savoir plus', href: '/about', style: 'hollow' } %}
+					{% include 'components/button.twig' with { text: 'Informations pratiques', href: '/infos', style: 'green' } %}
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="relative spiked">
+		<div class="background bg-creme"></div>
+		<div class="background image opacity-10 mix-blend-plus-darker"></div>
+
+		<div class="grid pt-50 pb-30">
+			{% include 'components/vod.twig' %}
+			{% include 'components/partner.twig' %}
+		</div>
+	</section>
+	<section class="relative spiked bg-yellow grid text-blue py-25">
+		<h2 class="text-2xl lg:col-span-4 lg:col-start-2 ">Newsletter</h2>
+		<div class="lg:col-span-6 mt-20">
+			<p class=" mb-10">
+				Abonnez-vous à la newsletter pour recevoir les actualités du festival et les offres exclusives.
+			</p>
+			<form action="" class="flex">
+				<input type="text" class="p-3 text-mazius placeholder:text-mazius! bg-creme border border-black" placeholder="Votre adresse e-mail">
+				<button type="submit" class="bg-blue cursor-pointer">
+
+					{% include 'components/button.twig' with { text: 'Tenez-moi au jus', href: "#" , style: 'blue', custom_class: 'text-yellow pointer-events-none' } %}
+				</button>
+			</form>
+		</div>
+	</section>
 {% endblock %}

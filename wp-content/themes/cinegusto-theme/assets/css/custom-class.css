@@ -8,9 +8,63 @@
 }
 
 .background.image {
-  @apply bg-[url(../img/bg.jpg)] bg-top bg-[length:100%_auto] bg-repeat-y;
+  @apply bg-[url(../img/checkered-background.jpg)] bg-top bg-[length:100%_auto] bg-repeat-y;
+}
+
+.background.image.edelweiss {
+  @apply bg-[url(../img/edelweiss-background.jpg)];
 }
 
 .basic-page {
   @apply pt-30 md:pt-50;
+}
+
+.spiked {
+  clip-path: polygon(
+    0% 0%,
+    5% calc(0% + 50px),
+    10% 0%,
+    15% calc(0% + 50px),
+    20% 0%,
+    25% calc(0% + 50px),
+    30% 0%,
+    35% calc(0% + 50px),
+    40% 0%,
+    45% calc(0% + 50px),
+    50% 0%,
+    55% calc(0% + 50px),
+    60% 0%,
+    65% calc(0% + 50px),
+    70% 0%,
+    75% calc(0% + 50px),
+    80% 0%,
+    85% calc(0% + 50px),
+    90% 0%,
+    95% calc(0% + 50px),
+    100% 0%,
+    100% 100%,
+    0% 100%
+  );
+  @apply -mt-[50px];
+}
+
+@media (max-width: 768px) {
+  .spiked {
+    clip-path: polygon(
+      0% 0%,
+      10% calc(0% + 30px),
+      20% 0%,
+      30% calc(0% + 30px),
+      40% 0%,
+      50% calc(0% + 30px),
+      60% 0%,
+      70% calc(0% + 30px),
+      80% 0%,
+      90% calc(0% + 30px),
+      100% 0%,
+      100% 100%,
+      0% 100%
+    );
+    @apply -mt-[30px];
+  }
 }

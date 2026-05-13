@@ -1,0 +1,38 @@
+{% extends "base.twig" %}
+
+{% block background_image %}opacity-15 edelweiss
+{% endblock %}
+
+{% block content %}
+	<section class="grid basic-page text-creme">
+		<h1 class="text-4xl">
+			A propos du festival
+		</h1>
+		<p class="text-l mt-6 md:mt-15 mb-8">CinéGusto, à la croisée de trois chemins</p>
+		<p class="lg:col-span-3 lg:col-start-3">
+			<strong>Julien Morel</strong>
+			a commencé comme projectionniste dans un petit cinéma de quartier à Vevey. Passionné par les films qui mettent en scène la cuisine, il a peu à peu développé un réseau de réalisateur·trice·s et de distributeur·trice·s indépendants. Son approche pragmatique et son sens du détail ont fait de lui un programmateur recherché pour des événements culturels en Suisse romande.</p>
+		<p class="lg:col-span-3 max-lg:col-start-2 max-lg:col-span-3 max-md:mt-20">
+			<strong>Sofia Rinaldi</strong>
+			, originaire de Milan, a travaillé dans plusieurs restaurants en Italie avant de s’installer en Gruyère. Elle y a ouvert un petit restaurant, La Tavola, où elle propose une cuisine inspirée de ses racines italiennes, tout en intégrant des produits locaux. Son engagement pour une cuisine accessible et authentique a séduit un public fidèle, et son restaurant est devenu un lieu de rencontre pour les amateur·trice·s de gastronomie.</p>
+		<p class="lg:col-span-3 max-md:mt-20">
+			<strong>Marc Dubois</strong>
+			, après des études en gestion, a travaillé dans l’organisation d’événements culturels pour des institutions en Suisse. Son expérience dans la coordination de projets complexes et son sens du relationnel ont été déterminants pour structurer CinéGusto. Il a su rassembler les partenaires nécessaires et créer une dynamique autour du projet.
+		</p>
+		<p class="lg:col-span-7 mt-20 lg:col-start-3">
+			Ensemble, ils imaginent CinéGusto comme un espace de rencontre entre les cultures, où le cinéma et la gastronomie deviennent des vecteurs d’échange et de découverte.
+		</p>
+		<div class="mt-15 md:mt-30 gutenberg-content mb-20 flex items-baseline gap-10 max-lg:flex-col">
+			{{ post.content }}
+			<p class="text-l">Intéressé·e à nous aider ?</p>
+			{% include "components/button.twig" with { text: "Mettre la main à la pâte", style: "hollow", href: "/contact" } %}
+		</div>
+	</section>
+	<section class="relative spiked pb-30">
+		<div class="background bg-creme"></div>
+		<div class="background image opacity-10 mix-blend-plus-darker"></div>
+		<div class="grid">
+			{% include 'components/partner.twig' %}
+		</div>
+	</section>
+{% endblock %}

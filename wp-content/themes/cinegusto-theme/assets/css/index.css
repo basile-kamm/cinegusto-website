@@ -2,7 +2,7 @@
 @import "./tailwind.css";
 @import "./custom-class.css";
 @import "./grid.css";
-@import "./accordion.css";
+@import "./gutenberg.css";
 
 body {
   @apply font-barlow text-black text-base;

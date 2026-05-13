@@ -1,0 +1,15 @@
+.gutenberg-content > * {
+  @apply mb-3;
+}
+
+.gutenberg-content ul {
+  @apply list-disc list-inside;
+}
+
+.gutenberg-content strong {
+  @apply text-l font-mazius;
+}
+
+.gutenberg-content h2 {
+  @apply text-xl font-normal not-first:mt-15;
+}

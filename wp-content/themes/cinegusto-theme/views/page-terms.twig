@@ -1,0 +1,19 @@
+{% extends "base.twig" %}
+
+{% block background_color %}bg-green
+{% endblock %}
+{% block background_image %}opacity-15 mix-blend-color-burn
+{% endblock %}
+
+{% set nav_item = 'text-l hover:underline' %}
+
+{% block content %}
+	<section class="grid basic-page text-yellow">
+		<h1 class="text-4xl lg:col-start-2">
+			Conditions Générales
+		</h1>
+		<div class="mt-15 md:mt-30 gutenberg-content mb-20">
+			{{ post.content }}
+		</div>
+	</section>
+{% endblock %}

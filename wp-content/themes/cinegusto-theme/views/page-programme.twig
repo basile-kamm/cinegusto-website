@@ -3,7 +3,7 @@
 {% set days = get_f %}
 
 {% block content %}
-	<section class="banner h-[60vh] flex items-center justify-center mx-10">
+	<section class="banner h-[60vh] flex items-end justify-center mx-10">
 		{% embed 'components/card.twig'  with { padding_outside: ' p-2 md:p-3'} %}
 			{% block content %}
 				<div class="flex flex-col gap-4 items-center text-center">
@@ -15,7 +15,7 @@
 		{% endembed %}
 	</section>
 	{% for thematique in thematiques %}
-		<section class="grid items-start pb-50 {{ thematique.theme_id }}">
+		<section id="{{ thematique.theme_id}}" class="grid items-start pt-30 {{ thematique.theme_id }}">
 			{% embed 'components/card.twig' with { is_border_double: true, container_class: 'lg:col-span-6 ' } %}
 				{% block content %}
 					<div class="flex flex-col gap-8 lg:gap-10">

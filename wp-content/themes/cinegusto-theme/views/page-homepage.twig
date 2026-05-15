@@ -3,8 +3,8 @@
 {% set days = get_f %}
 
 {% block content %}
-	<section class="banner h-[calc(100vh-64px)] flex items-center justify-center mx-10">
-		{% embed 'components/card.twig'  with { padding_outside: ' p-2 md:p-3'} %}
+	<section class="banner h-[calc(100vh-64px)] flex items-center justify-center mx-10 relative">
+		{% embed 'components/card.twig'  with { padding_outside: ' p-2 md:p-3', container_class: '-rotate-3'} %}
 			{% block content %}
 				<div class="flex flex-col gap-4 items-center text-center">
 					<h1 class="text-3xl">CinéGusto</h1>
@@ -16,18 +16,80 @@
 				</div>
 			{% endblock %}
 		{% endembed %}
+		<div class="absolute">
+			<div class="absolute -top-30 -left-125 -rotate-25">
+				{% include 'components/ticket.twig' %}
+			</div>
+			<a href="/infos" class="absolute w-20 lg:w-32 block -top-75 -right-105 rotate-12 interactive group">
+				<img src="{{theme_link}}/assets/img/boussole.webp" alt="" class="group-hover:scale-105 group-hover:rotate-3 transition-all duration-200 shadow-bottom">
+			</a>
+			<a href="/programme" class="absolute w-20 lg:w-80 block -bottom-110 -right-180 -rotate-20 interactive group">
+				<img src="{{theme_link}}/assets/img/menu.webp" alt="" class="group-hover:scale-105 group-hover:-rotate-3 transition-all duration-200 shadow-bottom">
+			</a>
+			<div class="absolute size-10 lg:size-85 -bottom-120 -left-170  shadow-bottom rotate-20">
+				<img src="{{theme_link}}/assets/img/clapperboard.webp" alt="" class="h-full w-full object-contain object-center">
+			</div>
+			<div class="absolute size-10 lg:size-25 -bottom-50 -left-180  shadow-bottom">
+				<img src="{{theme_link}}/assets/img/seasoning/seasoning-1.webp" alt="" class="h-full w-full object-contain object-center">
+			</div>
+			<div class="absolute size-10 lg:size-25 -top-30 -right-130  shadow-bottom">
+				<img src="{{theme_link}}/assets/img/seasoning/seasoning-2.webp" alt="" class="h-full w-full object-contain object-center">
+			</div>
+			<div class="absolute size-10 lg:size-20 -top-80 -right-60  shadow-bottom">
+				<img src="{{theme_link}}/assets/img/seasoning/seasoning-3.webp" alt="" class="h-full w-full object-contain object-center">
+			</div>
+			<div class="absolute size-10 lg:size-30 -bottom-80 -left-80  shadow-bottom">
+				<img src="{{theme_link}}/assets/img/seasoning/seasoning-4.webp" alt="" class="h-full w-full object-contain object-center">
+			</div>
+			<div class="absolute size-10 lg:size-30 -top-25 -right-190  shadow-bottom">
+				<img src="{{theme_link}}/assets/img/seasoning/seasoning-5.webp" alt="" class="h-full w-full object-contain object-center">
+			</div>
+			<div class="absolute size-10 lg:size-25 -top-70 -left-50  shadow-bottom">
+				<img src="{{theme_link}}/assets/img/seasoning/seasoning-6.webp" alt="" class="h-full w-full object-contain object-center">
+			</div>
+			<div class="absolute size-10 lg:size-60 -bottom-115 -right-85  shadow-bottom rotate-30">
+				<img src="{{theme_link}}/assets/img/seasoning/seasoning-7.webp" alt="" class="h-full w-full object-contain object-center">
+			</div>
+			<div class="absolute size-10 lg:size-20 -bottom-50 -right-40  shadow-bottom">
+				<img src="{{theme_link}}/assets/img/seasoning/seasoning-8.webp" alt="" class="h-full w-full object-contain object-center">
+			</div>
+			<div class="absolute size-10 lg:size-35 -top-20 -left-120 shadow-bottom">
+				<img src="{{theme_link}}/assets/img/seasoning/seasoning-9.webp" alt="" class="h-full w-full object-contain object-center rotate-70">
+			</div>
+			<div class="absolute size-10 lg:size-35 -top-70 -left-200 shadow-bottom">
+				<img src="{{theme_link}}/assets/img/seasoning/seasoning-10.webp" alt="" class="h-full w-full object-contain object-center ">
+			</div>
+			<div class="absolute size-10 lg:size-18 -bottom-10 -left-160  shadow-bottom">
+				<img src="{{theme_link}}/assets/img/seasoning/seasoning-11.webp" alt="" class="h-full w-full object-contain object-center">
+			</div>
+			<div class="absolute size-10 lg:size-35 -bottom-110 -right-10  shadow-bottom">
+				<img src="{{theme_link}}/assets/img/seasoning/seasoning-12.webp" alt="" class="h-full w-full object-contain object-center">
+			</div>
+			<div class="absolute size-10 lg:size-20 -top-70 -right-30  shadow-bottom">
+				<img src="{{theme_link}}/assets/img/seasoning/seasoning-13.webp" alt="" class="h-full w-full object-contain object-center">
+			</div>
+		</div>
+		<div class="absolute size-10 lg:size-90 origin-top-left -top-5 -right-20  shadow-bottom">
+			<img src="{{theme_link}}/assets/img/popcorn/popcorn-full.webp" alt="" class="h-full w-full object-contain object-center">
+		</div>
 	</section>
-	<section class="grid items-start pb-50">
+	<section class="grid items-start pb-50 xl:pb-80 gap-y-30">
 		{% for thematique in thematiques %}
-			{% embed 'components/card.twig' with { is_border_double: true, container_class: 'col-span-5 col odd:lg:col-start-2 even:lg:col-start-7' } %}
-				{% block content %}
-					<div class="flex flex-col gap-8 lg:gap-10">
-						<h2 class="text-xl font-normal">{{ thematique.theme_title }}</h2>
-						<p class="text-base">{{ thematique.theme_description }}</p>
-						<a href="/programme" class="text-l underline lg:hidden">Voir ce qui mijote</a>
-					</div>
-				{% endblock %}
-			{% endembed %}
+			<div class="relative col-span-4 odd:lg:col-start-2 even:lg:col-start-7 group interactive">
+				<a href="/programme#{{thematique.theme_id}}" class="absolute inset-0 z-20"></a>
+				<img src="{{ thematique.thumbnail }}" alt="" class="absolute size-50 bottom-0 right-0 z-10 translate-x-1/2 translate-y-1/2 group-hover:scale-104 group-hover:rotate-3 transition-transform">
+
+				{% embed 'components/card.twig' with { is_border_double: true, container_class: 'transition-transform group-nth-1:-rotate-3 group-nth-2:rotate-3 group-nth-3:rotate-2 group-nth-4:-rotate-5 group-hover:group-nth-1:-rotate-5 group-hover:group-nth-2:rotate-5 group-hover:group-nth-3:rotate-4 group-hover:group-nth-4:-rotate-7'  } %}
+					{% block content %}
+						<div class="flex flex-col gap-8 lg:gap-10">
+							<h2 class="text-xl font-normal">{{ thematique.theme_title }}</h2>
+							<p class="text-base">{{ thematique.theme_description }}</p>
+							<a href="/programme" class="text-l underline lg:hidden">Voir ce qui mijote</a>
+						</div>
+					{% endblock %}
+				{% endembed %}
+			</div>
+
 		{% endfor %}
 	</section>
 	<section class="relative">

@@ -68,3 +68,24 @@
     @apply -mt-[30px];
   }
 }
+
+.shadow-bottom {
+  -webkit-filter: drop-shadow(0 2px 4px #0000003d);
+  filter: drop-shadow(0 2px 4px #0000003d);
+}
+
+.shadow-top {
+  -webkit-filter: drop-shadow(-2px -1px 4px #0000003d);
+  filter: drop-shadow(-2px -1px 4px #0000003d);
+}
+
+.interactive {
+  -webkit-filter: drop-shadow(0 0 0 #ffffff);
+  filter: drop-shadow(0 0 0 #ffffff);
+  transition: filter 0.2s ease-in-out;
+
+  &:hover {
+    filter: drop-shadow(0 0 15px #ffffff);
+    -webkit-filter: drop-shadow(0 0 15px #ffffff);
+  }
+}

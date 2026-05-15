@@ -16,6 +16,10 @@ class StarterSite extends Site {
 		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
 		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
 		add_filter( 'timber/twig/environment/options', [ $this, 'update_twig_environment_options' ] );
+		add_filter('timber/twig', function ($twig) {
+			$twig->addFunction(new \Twig\TwigFunction('get_fields', 'get_fields'));
+			return $twig;
+		});
 
 		parent::__construct();
 	}

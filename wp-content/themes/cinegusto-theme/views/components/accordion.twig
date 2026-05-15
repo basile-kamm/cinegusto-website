@@ -5,6 +5,7 @@
 		</svg>
 		<p class="shrink-0 font-normal">{{ title }}</p>
 		<div class="w-full h-1 border-b border-currentColor border-dotted"></div>
+		{% block end_item %}{% endblock %}
 	</button>
 	<div x-show="open" x-collapse>
 		<div class="gutenberg-content pl-9 mt-2 pb-3">

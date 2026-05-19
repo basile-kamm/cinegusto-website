@@ -8,7 +8,7 @@
 }
 
 .background.image {
-  @apply bg-[url(../img/checkered-background.jpg)] bg-top bg-[length:100%_auto] bg-repeat-y;
+  @apply bg-[url(../img/checkered-background-mobile.jpg)] md:bg-[url(../img/checkered-background.jpg)] bg-top bg-[length:100%_auto] bg-repeat-y;
 }
 
 .background.image.edelweiss {

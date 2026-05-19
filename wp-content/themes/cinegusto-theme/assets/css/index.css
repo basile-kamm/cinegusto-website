@@ -5,7 +5,7 @@
 @import "./gutenberg.css";
 
 body {
-  @apply font-barlow text-black text-base scroll-smooth;
+  @apply font-barlow text-black text-base scroll-smooth overflow-x-hidden;
 }
 
 h1,

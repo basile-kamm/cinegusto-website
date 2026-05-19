@@ -4,25 +4,25 @@
 
 {% block content %}
 	<section class="banner h-[60vh] flex items-end justify-center mx-10">
-		{% embed 'components/card.twig'  with { padding_outside: ' p-2 md:p-3'} %}
+		{% embed 'components/card.twig'  with { padding_outside: ' p-2 md:p-3', padding: 'max-md:p-5 p-3 md:p-5', container_class: 'rotate-3'} %}
 			{% block content %}
 				<div class="flex flex-col gap-4 items-center text-center">
 					<h1 class="text-3xl">Programme</h1>
-					<p class="text-l">Du 8 au 11 septembre 2027</p>
-					<p class="text-l">Bulle - La-Tour-de-Trême</p>
+					<p class="text-l max-md:font-normal">Du 8 au 11 septembre 2027</p>
+					<p class="text-l max-md:font-normal">Bulle - La-Tour-de-Trême</p>
 				</div>
 			{% endblock %}
 		{% endembed %}
 	</section>
 	{% for thematique in thematiques %}
-		<section id="{{ thematique.theme_id}}" class="grid items-start pt-30 {{ thematique.theme_id }}">
-			{% embed 'components/card.twig' with { is_border_double: true, container_class: 'lg:col-span-6 ' } %}
+		<section id="{{ thematique.theme_id}}" class="grid items-start pt-30 gap-y-4 {{ thematique.theme_id }}">
+			{% embed 'components/card.twig' with { is_border_double: true, container_class: 'lg:col-span-6 max-md:-rotate-1' } %}
 				{% block content %}
-					<div class="flex flex-col gap-8 lg:gap-10">
+					<div class="flex flex-col gap-6 lg:gap-10">
 						<h2 class="text-xl">{{ thematique.theme_title }}</h2>
 						<p class="text-base">{{ thematique.theme_description }}</p>
 						<h3 class="text-xl font-normal">Menu du jour</h3>
-						<div class="flex flex-col gap-4">
+						<div class="flex flex-col gap-3 md:gap-4">
 							<p class="text-l">18H - Parvis de la salle CO2</p>
 							<p>Cuisiné par
 								<span class="text-l">{{ thematique.food_details.cooked_by }}</span>
@@ -32,49 +32,52 @@
 							</p>
 						</div>
 					</div>
-					<div class="flex flex-col gap-2 mt-12 lg:mt-14 mb-14">
+					<div class="flex flex-col gap-2 mt-12 lg:mt-14 mb-6 md:mb-14">
 						<h4 class="text-l">Plat principal revisité</h4>
 						{% include 'components/accordion.twig' with { title: thematique.food_details.main_menu.title, text: thematique.food_details.main_menu.details } %}
 						<h4 class="text-l">Option végétarienne/vegan</h4>
 						{% include 'components/accordion.twig' with { title: thematique.food_details.vegan_menu.title, text: thematique.food_details.vegan_menu.details  } %}
 					</div>
-					{% include 'components/button.twig' with { text: 'Vivre l’expérience CinéGusto', href: '/fares' , style: 'red' } %}
+					{% include 'components/button.twig' with { text: 'Vivre l’expérience CinéGusto', href: '/fares' , style: 'red', custom_class: 'inline-block' } %}
 				{% endblock %}
 			{% endembed %}
 
-			{% embed 'components/card.twig' with { is_border_double: true, container_class: 'col-span-6 lg:col-start-7' } %}
+			{% embed 'components/card.twig' with { is_border_double: true, container_class: 'lg:col-span-6 lg:col-start-7 max-md:rotate-1' } %}
 				{% block content %}
 					<div class="flex flex-col gap-8 lg:gap-10">
 						<h2 class="text-xl font-normal">Séances du jour</h2>
-						<div class="flex flex-col gap-8 lg:gap-4">
+						<div class="flex flex-col gap-8">
 							{% for session in thematique.films_details %}
-								<h4 class="text-l">{{ session.time }}</h4>
-								{% for film in session.films %}
-									{% set film_term = get_fields('film_' ~ film.film_object) %}
-									{% embed 'components/accordion.twig' with { title: film_term.film_title } %}
-										{% block end_item %}
-											<p class="shrink-0">{{ film.place }}</p>
-										{% endblock %}
-										{% block content %}
-											<div class="flex flex-col gap-4 items-start">
-												<div class="flex gap-6">
-													<p class="text-l">{{ film_term.film_author }}</p>
-													<p>{{ film_term.place_and_date }}</p>
+								<div class="flex flex-col gap-4">
+									<h4 class="text-l">{{ session.time }}</h4>
+									{% for film in session.films %}
+										{% set film_term = get_fields('film_' ~ film.film_object) %}
+										{% embed 'components/accordion.twig' with { title: film_term.film_title } %}
+											{% block end_item %}
+												<p class="shrink-0 max-md:hidden">{{ film.place }}</p>
+											{% endblock %}
+											{% block content %}
+												<div class="flex flex-col gap-4 items-start">
+													<div class="flex gap-4 md:gap-6">
+														<p class="text-l">{{ film_term.film_author }}</p>
+														<p>{{ film_term.place_and_date }}</p>
+													</div>
+													<p class="font-bold">{{ film.place }}</p>
+													<div class="flex gap-4 md:gap-6">
+														<p>{{ film_term.film_duration }}</p>
+														<p>{{ film_term.film_type }}</p>
+														<p>{{ film_term.minimal_age ? film_term.minimal_age : 'Tout public' }}</p>
+													</div>
+													<div class="w-full">
+														<iframe class="w-full aspect-video " src="{{ film_term.embed_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+													</div>
+													<p>{{ film_term.film_synopsis }}</p>
+													{% include 'components/button.twig' with { text: 'Croquer un billet', href: '/fares' , style: 'red', custom_class: 'mt-4' } %}
 												</div>
-												<div class="flex gap-6">
-													<p>{{ film_term.film_duration }}</p>
-													<p>{{ film_term.film_type }}</p>
-													<p>{{ film_term.minimal_age ? film_term.minimal_age : 'Tout public' }}</p>
-												</div>
-												<div class="w-full">
-													<iframe class="w-full aspect-video " src="{{ film_term.embed_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-												</div>
-												<p>{{ film_term.film_synopsis }}</p>
-												{% include 'components/button.twig' with { text: 'Croquer un billet', href: '/fares' , style: 'red', custom_class: 'mt-4' } %}
-											</div>
-										{% endblock %}
-									{% endembed %}
-								{% endfor %}
+											{% endblock %}
+										{% endembed %}
+									{% endfor %}
+								</div>
 							{% endfor %}
 						</div>
 					</div>
@@ -82,13 +85,14 @@
 			{% endembed %}
 		</section>
 	{% endfor %}
+	<div class="mb-20"></div>
 	<section class="relative spiked text-yellow">
 		<div class="background bg-blue "></div>
 		<div class="background image opacity-15 mix-blend-color-burn"></div>
 
-		<div class="grid pt-50 pb-30">
+		<div class="grid pt-30 lg:pt-50 pb-30">
 			<h2 class="text-2xl lg:col-span-4 lg:col-start-2 ">Intéressé·e ?</h2>
-			<div class="lg:col-span-4 mt-15">
+			<div class="lg:col-span-4 mt-10 lg:mt-15">
 				<p class=" mb-10">
 					Découvrez nos formules adaptées à chacunes de vos envies !
 				</p>

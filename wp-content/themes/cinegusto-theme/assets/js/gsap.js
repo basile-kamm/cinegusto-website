@@ -11,12 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentScrollPosition = window.scrollY;
 
     if (currentScrollPosition > lastScrollPosition) {
-      gsap.to("header", {
+      gsap.to(".navbar", {
         y: "-120%",
         duration: 1,
       });
     } else {
-      gsap.to("header", {
+      gsap.to(".navbar", {
         y: 0,
         duration: 0.5,
       });

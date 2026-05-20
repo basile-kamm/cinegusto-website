@@ -89,3 +89,7 @@
     -webkit-filter: drop-shadow(0 0 15px #ffffff);
   }
 }
+
+.hover-btn {
+  @apply bg-black px-4 py-3 text-creme text-l absolute -translate-y-1/1 whitespace-nowrap;
+}

@@ -1,24 +1,26 @@
 {% set menu_item_class = "text-main-menu origin-bottom-left max-md:underline md:hover:underline md:hover:scale-103 md:hover:-rotate-3 transition-transform duration-300" %}
 
 <header class="fixed top-0 left-0 w-svw md:w-full z-5" x-data="{ isMenuOpen: false, isLangOpen: false }">
-	{% embed 'components/card.twig' with { padding_outside: 'p-3'} %}
-		{% block content %}
-			<div class="flex justify-between">
-				<a href="/" class="h-10 hover:scale-105 hover:-rotate-3 transition-transform duration-300">
-					<img src="{{ theme_link }}/assets/img/logo-simple.png" alt="" class="h-full w-full object-contain">
-				</a>
-				<nav id="nav-main" role="navigation" class="flex gap-4 max-lg:hidden items-baseline">
-					{% for item in main_menu.items %}
-						<a href="{{ item.url }}" class="{{ menu_item_class }}">{{ item.title }}</a>
-					{% endfor %}
-					<button class="{{ menu_item_class }} cursor-pointer" @click="isLangOpen = true">FR</button>
-				</nav>
-				<button class="lg:hidden cursor-pointer" @click="isMenuOpen = true">
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.633h16.5M3.75 12h16.5m-16.5 5.367h16.5"/>
-					</svg>
-					<span class="sr-only">Menu</span>
-				</button>
+	<div class="navbar">
+		{% embed 'components/card.twig' with { padding_outside: 'p-3'} %}
+			{% block content %}
+				<div class="flex justify-between">
+					<a href="/" class="h-10 hover:scale-105 hover:-rotate-3 transition-transform duration-300">
+						<img src="{{ theme_link }}/assets/img/logo-simple.png" alt="" class="h-full w-full object-contain">
+					</a>
+					<nav id="nav-main" role="navigation" class="flex gap-4 max-lg:hidden items-baseline">
+						{% for item in main_menu.items %}
+							<a href="{{ item.url }}" class="{{ menu_item_class }}">{{ item.title }}</a>
+						{% endfor %}
+						<button class="{{ menu_item_class }} cursor-pointer" @click="isLangOpen = true">FR</button>
+					</nav>
+					<button class="lg:hidden cursor-pointer" @click="isMenuOpen = true">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.633h16.5M3.75 12h16.5m-16.5 5.367h16.5"/>
+						</svg>
+						<span class="sr-only">Menu</span>
+					</button>
+				</div>
 			</div>
 		{% endblock %}
 	{% endembed %}

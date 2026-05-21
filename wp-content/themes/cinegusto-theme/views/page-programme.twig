@@ -69,7 +69,7 @@
 														<p>{{ film_term.minimal_age ? film_term.minimal_age : 'Tout public' }}</p>
 													</div>
 													<div class="w-full">
-														<iframe class="w-full aspect-video " src="{{ film_term.embed_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+														<iframe class="w-full aspect-video" data-embed="{{ film_term.embed_link}}" x-ref="iframe" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 													</div>
 													<p>{{ film_term.film_synopsis }}</p>
 													{% include 'components/button.twig' with { text: 'Croquer un billet', href: '/fares' , style: 'red', custom_class: 'mt-4' } %}
@@ -85,7 +85,7 @@
 			{% endembed %}
 		</section>
 	{% endfor %}
-	<div class="mb-20"></div>
+	<div class="mb-20 lg:mb-40"></div>
 	<section class="relative spiked text-yellow">
 		<div class="background bg-blue "></div>
 		<div class="background image opacity-15 mix-blend-color-burn"></div>
@@ -105,7 +105,7 @@
 		<div class="background bg-creme"></div>
 		<div class="background image opacity-10 mix-blend-plus-darker"></div>
 
-		<div class="grid pt-50 pb-30">
+		<div class="grid pt-50 pb-30 canap-container">
 			{% include 'components/vod.twig' %}
 		</div>
 	</section>

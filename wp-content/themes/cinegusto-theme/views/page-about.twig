@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block content %}
-	<section class="grid basic-page text-creme">
+	<section class="grid basic-page text-creme relative">
 		<h1 class="text-4xl">
 			A propos du festival
 		</h1>
@@ -28,6 +28,18 @@
 			{% include "components/button.twig" with { text: "Mettre la main à la pâte", style: "hollow", href: "/contact" } %}
 		</div>
 	</section>
+	<div class="fixed inset-0 w-full page">
+		{% include 'components/grue.twig' with {class: 'w-40 md:w-60 right-0'} %}
+	</div>
+
+	<div class="relative">
+		<div class="absolute -top-12 md:max-lg:-top-8 left-[calc(50%+20px)] rotate-15 z-1">
+			<img src="{{theme_link}}/assets/img/cow.webp" alt="" class="w-20 md:w-30 lg:w-40 idle ">
+		</div>
+		<img src="{{theme_link}}/assets/img/moleson.webp" alt="" class="max-md:scale-150 max-md:-translate-x-10">
+		<img src="{{theme_link}}/assets/img/berra.webp" alt="" class="absolute left-0 md:bottom-10 lg:bottom-25 xl:bottom-40 w-1/2 xl:w-1/3 -z-1 max-md:hidden">
+		<img src="{{theme_link}}/assets/img/dent-broc.webp" alt="" class="absolute -right-40 bottom-10 md:-right-20 md:bottom-30 lg:bottom-45 xl:bottom-60 md:w-1/2 -z-1">
+	</div>
 	<section class="relative spiked pb-30">
 		<div class="background bg-creme"></div>
 		<div class="background image opacity-10 mix-blend-plus-darker"></div>

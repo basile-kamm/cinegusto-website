@@ -3,7 +3,7 @@
 {% set days = get_f %}
 
 {% block content %}
-	<section class="banner h-[60vh] flex items-end justify-center mx-10">
+	<section class="banner h-[60vh] flex items-end justify-center mx-10 relative">
 		{% embed 'components/card.twig'  with { padding_outside: ' p-2 md:p-3', padding: 'max-md:p-5 p-3 md:p-5', container_class: 'rotate-3'} %}
 			{% block content %}
 				<div class="flex flex-col gap-4 items-center text-center">
@@ -13,10 +13,57 @@
 				</div>
 			{% endblock %}
 		{% endembed %}
+		<div class="absolute">
+			<div class="absolute max-md:w-10 -bottom-15 -right-35 md:-right-90  lg:-right-105 -rotate-25">
+				{% include 'components/ticket.twig' %}
+			</div>
+			<a href="/infos" class="absolute w-18 md:w-24 lg:w-32 block -top-70 -left-45 md:-top-90 md:-left-70 lg:-top-95 lg:-left-85 xl:-left-95 -rotate-12 interactive group z-1" data-btn="Informations pratiques">
+				<img src="{{theme_link}}/assets/img/boussole.webp" alt="" class="group-hover:scale-105 group-hover:rotate-3 transition-all duration-200 shadow-bottom">
+			</a>
+			<div class="absolute size-40 md:size-65 lg:size-85 -bottom-35 -left-55 md:-bottom-45 md:-left-130 lg:-bottom-60 lg:-left-160 xl:-left-190  shadow-bottom rotate-20">
+				<img src="{{theme_link}}/assets/img/clapperboard.webp" alt="" class="h-full w-full object-contain object-center">
+			</div>
+			<div class="absolute max-lg:hidden size-25 -top-10 -right-130  shadow-bottom">
+				<img src="{{theme_link}}/assets/img/seasoning/seasoning-2.webp" alt="" class="h-full w-full object-contain object-center">
+			</div>
+			<div class="absolute max-lg:hidden size-20 -top-90 -right-60  shadow-bottom">
+				<img src="{{theme_link}}/assets/img/seasoning/seasoning-11.webp" alt="" class="h-full w-full object-contain object-center">
+			</div>
+			<div class="absolute size-12 md:size-20 lg:size-25 -bottom-20 -left-10 md:-bottom-30 md:-left-50 lg:-bottom-25 lg:-left-50 shadow-bottom">
+				<img src="{{theme_link}}/assets/img/seasoning/seasoning-4.webp" alt="" class="h-full w-full object-contain object-center">
+			</div>
+			<div class="absolute size-15 md:size-25 lg:size-30 -top-35 -right-50 md:-right-90 lg:-top-45 lg:-right-145 xl:-right-190  shadow-bottom">
+				<img src="{{theme_link}}/assets/img/seasoning/seasoning-5.webp" alt="" class="h-full w-full object-contain object-center">
+			</div>
+			<div class="absolute size-16 md:size-20 lg:size-25 -top-80 -left-15 md:-top-90 md:-left-30 lg:-top-103 shadow-bottom">
+				<img src="{{theme_link}}/assets/img/seasoning/seasoning-6.webp" alt="" class="h-full w-full object-contain object-center">
+			</div>
+			<div class="absolute size-10 md:size-15 lg:size-20 -right-25 -top-65 md:-top-75 md:-right-35 lg:-right-80 lg:-top-60 xl:-right-100  shadow-bottom">
+				<img src="{{theme_link}}/assets/img/seasoning/seasoning-8.webp" alt="" class="h-full w-full object-contain object-center">
+			</div>
+			<div class="absolute size-20 md:size-30 lg:size-35 xl:size-40 -top-30 -left-50 md:-top-45 md:-left-90 lg:-top-50 lg:-left-115 xl:-left-130 xl:-top-60 shadow-bottom">
+				<img src="{{theme_link}}/assets/img/seasoning/seasoning-9.webp" alt="" class="h-full w-full object-contain object-center rotate-70">
+			</div>
+			<div class="absolute size-20 md:size-30 lg:size-35 -top-90 -left-52  md:-left-120 lg:-top-80 xl:-top-70 lg:-left-160 xl:-left-200 shadow-bottom">
+				<img src="{{theme_link}}/assets/img/seasoning/seasoning-10.webp" alt="" class="h-full w-full object-contain object-center ">
+			</div>
+			<div class="absolute max-lg:hidden size-18 -bottom-20 xl:-bottom-10 -left-20 xl:-bottom-15  shadow-bottom">
+				<img src="{{theme_link}}/assets/img/seasoning/seasoning-3.webp" alt="" class="h-full w-full object-contain object-center">
+			</div>
+			<div class="absolute size-15 md:size-20 lg:size-35 -bottom-10 -right-15 md:-bottom-25 md:-right-25 lg:-bottom-50 lg:-right-30  shadow-bottom">
+				<img src="{{theme_link}}/assets/img/seasoning/seasoning-12.webp" alt="" class="h-full w-full object-contain object-center">
+			</div>
+			<div class="absolute size-10 md:size-15 lg:size-20 -top-60 -right-5 md:-top-70 md:-right-10 lg:-top-80 lg:-right-30  shadow-bottom">
+				<img src="{{theme_link}}/assets/img/seasoning/seasoning-13.webp" alt="" class="h-full w-full object-contain object-center">
+			</div>
+		</div>
+		<div class="absolute size-40 md:size-60 lg:size-70 xl:size-90 origin-top-left -top-2 -right-15 md:top-0 lg:top-5 xl:-top-5 lg:-right-25  shadow-bottom">
+			<img src="{{theme_link}}/assets/img/popcorn/popcorn-full.webp" alt="" class="h-full w-full object-contain object-center">
+		</div>
 	</section>
 	{% for thematique in thematiques %}
-		<section id="{{ thematique.theme_id}}" class="grid items-start pt-30 gap-y-4 {{ thematique.theme_id }}">
-			{% embed 'components/card.twig' with { is_border_double: true, container_class: 'lg:col-span-6 max-md:-rotate-1' } %}
+		<section id="{{ thematique.theme_id}}" class="grid items-start pt-30 gap-y-10 group {{ thematique.theme_id }}">
+			{% embed 'components/card.twig' with { is_border_double: true, container_class: 'lg:col-span-6 max-md:-rotate-1 group-even:-rotate-2 group-odd:rotate-1 relative z-1' } %}
 				{% block content %}
 					<div class="flex flex-col gap-6 lg:gap-10">
 						<h2 class="text-xl">{{ thematique.theme_title }}</h2>
@@ -39,10 +86,11 @@
 						{% include 'components/accordion.twig' with { title: thematique.food_details.vegan_menu.title, text: thematique.food_details.vegan_menu.details  } %}
 					</div>
 					{% include 'components/button.twig' with { text: 'Vivre l’expérience CinéGusto', href: '/fares' , style: 'red', custom_class: 'inline-block' } %}
+					<img src="{{ thematique.thumbnail }}" alt="" class="absolute size-30 md:size-70 bottom-0 right-0 z-10 translate-x-1/2 translate-y-1/2 shadow-bottom">
 				{% endblock %}
 			{% endembed %}
 
-			{% embed 'components/card.twig' with { is_border_double: true, container_class: 'lg:col-span-6 lg:col-start-7 max-md:rotate-1' } %}
+			{% embed 'components/card.twig' with { is_border_double: true, container_class: 'lg:col-span-6 lg:col-start-7 max-md:rotate-1 group-even:rotate-1 group-odd:-rotate-3 mt-10' } %}
 				{% block content %}
 					<div class="flex flex-col gap-8 lg:gap-10">
 						<h2 class="text-xl font-normal">Séances du jour</h2>

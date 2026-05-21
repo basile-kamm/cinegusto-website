@@ -67,48 +67,96 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
-  // Grue animation
-
-  const grueTl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".about",
-      start: "top 60%",
-      end: "top -50%",
-      markers: true,
-      scrub: true,
-    },
-  });
-  if (window.innerWidth > 768) {
-    grueTl.fromTo(
-      ".grue",
-      {
-        top: 60,
-        left: "100%",
+  // Grue animation homepage
+  if (document.querySelector(".about")) {
+    const grueTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".about",
+        start: "top 60%",
+        end: "top -50%",
+        // markers: true,
+        scrub: true,
       },
-      {
-        top: 20,
-        left: "20%",
-      },
-    );
-    grueTl.to(".grue", {
-      top: "40%",
-      left: "0%",
-      translateX: "-100%",
-      rotate: -60,
     });
-  } else {
-    grueTl.fromTo(
-      ".grue",
-      {
-        top: 0,
-        left: "100%",
-      },
-      {
-        top: 40,
+    if (window.innerWidth > 768) {
+      grueTl.fromTo(
+        ".grue",
+        {
+          top: 60,
+          left: "100%",
+        },
+        {
+          top: 20,
+          left: "20%",
+        },
+      );
+      grueTl.to(".grue", {
+        top: "40%",
         left: "0%",
         translateX: "-100%",
         rotate: -60,
+      });
+    } else {
+      grueTl.fromTo(
+        ".grue",
+        {
+          top: 0,
+          left: "100%",
+        },
+        {
+          top: 40,
+          left: "0%",
+          translateX: "-100%",
+          rotate: -60,
+        },
+      );
+    }
+  }
+  // Grue animation homepage
+  if (document.querySelector(".page")) {
+    const grueTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".page",
+        start: "top top",
+        end: "50% 80%",
+        markers: true,
+        scrub: true,
       },
-    );
+    });
+    if (window.innerWidth > 768) {
+      grueTl.fromTo(
+        ".grue",
+        {
+          top: "30%",
+          left: "110%",
+          rotate: 20,
+        },
+        {
+          top: 0,
+          left: "20%",
+          rotate: 0,
+        },
+      );
+      grueTl.to(".grue", {
+        top: "40%",
+        left: "0%",
+        translateX: "-100%",
+        rotate: -60,
+      });
+    } else {
+      grueTl.fromTo(
+        ".grue",
+        {
+          top: 0,
+          left: "100%",
+        },
+        {
+          top: 40,
+          left: "0%",
+          translateX: "-100%",
+          rotate: -60,
+        },
+      );
+    }
   }
 });

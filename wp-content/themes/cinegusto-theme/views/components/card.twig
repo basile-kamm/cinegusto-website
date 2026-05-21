@@ -8,7 +8,7 @@
 	{% if is_border_double %}
 		<div class="md:border md:border-black md:p-2">
 		{% endif %}
-		<div class="{{ padding }} border border-black">
+		<div class="{{ padding }} border border-black relative">
 			{% block content %}
 				<h2 class="text-xl">{{ title }}</h2>
 				<p class="text-base">{{text}}</p>

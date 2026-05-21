@@ -263,7 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
         start: "top top",
         end: "bottom top",
         scrub: 0.4,
-        markers: true,
+        // markers: true,
       },
     });
 

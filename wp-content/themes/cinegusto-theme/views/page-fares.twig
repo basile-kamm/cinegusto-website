@@ -6,7 +6,8 @@
 {% endblock %}
 
 {% block content %}
-	<section class="grid basic-page text-yellow">
+	<section class="grid fares-page basic-page text-yellow relative">
+
 		<h1 class="text-4xl lg:col-start-2 mb-15 lg:mb-19">
 			Choisissez l’expérience qui vous ressemble
 		</h1>
@@ -64,7 +65,7 @@
 				</thead>
 				<tbody>
 					{% for fare in post.main_fares %}
-						<tr class=" border-b-[0.5px] border-yellow last:border-0">
+						<tr class=" border-b-[0.5px] border-yellow last:border-0 hover:bg-yellow/5">
 							<td class="py-1">{{ fare.title }}</td>
 							<td>{{ fare.price }}</td>
 						</tr>
@@ -82,7 +83,7 @@
 				</thead>
 				<tbody>
 					{% for fare in post.vod_fares %}
-						<tr class=" border-b-[0.5px] border-yellow last:border-0">
+						<tr class=" border-b-[0.5px] border-yellow last:border-0 hover:bg-yellow/5">
 							<td class="py-1">{{ fare.title }}
 								<br><i class="md:hidden">{{ fare.time_limit }}</i>
 							</td>
@@ -94,8 +95,11 @@
 			</table>
 			<div class="flex mb-20 lg:mb-30 gap-6 max-md:flex-col md:justify-center">
 				{% include "components/button.twig" with { text: "Vers la billeterie", style: "yellow", href: billeterie_link, custom_class: "text-blue!" } %}
-				{% include "components/button.twig" with { text: "Vers la billeterie", style: "hollow-yellow", href: billeterie_link, custom_class: "" } %}
+				{% include "components/button.twig" with { text: "Goûter le programme", style: "hollow-yellow", href: '/programme', custom_class: "bg-blue/40!" } %}
 			</div>
 		</section>
+		<img src="{{theme_link}}/assets/img/cash-register-1.webp" alt="" class="register-1 absolute top-20 -left-10 -rotate-10 w-40 md:w-70 -z-1">
+		<img src="{{theme_link}}/assets/img/cash-register-3.webp" alt="" class="register-3 absolute top-85 right-0 md:top-[calc(0px+70vh)] md:right-1/3 -rotate-20 w-30 md:w-60 -z-1">
+		<img src="{{theme_link}}/assets/img/cash-register-2.webp" alt="" class="register-2 absolute top-0 md:top-30 right-0 rotate-10 w-35 md:w-75 -z-1">
 	</section>
 {% endblock %}

@@ -148,9 +148,9 @@
 			</p>
 			<form action="" class="flex max-md:flex-col">
 				<input type="text" class="p-3 text-mazius placeholder:text-mazius! bg-creme border border-black" placeholder="Votre adresse e-mail">
-				<button type="submit" class="bg-blue cursor-pointer">
+				<button type="submit" class="bg-blue cursor-pointer group">
 
-					{% include 'components/button.twig' with { text: 'Tenez-moi au jus', href: "#" , style: 'blue', custom_class: 'text-yellow pointer-events-none max-md:inline-block' } %}
+					{% include 'components/button.twig' with { text: 'Tenez-moi au jus', href: "#" , style: 'blue', custom_class: 'text-yellow pointer-events-none max-md:inline-block group-hover:bg-blue/30' } %}
 				</button>
 			</form>
 		</div>

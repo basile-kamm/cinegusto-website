@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
           trigger: ".canap-container",
           start: "top 60%",
           end: "top -50%",
-          scrub: 0.4,
+          scrub: true,
         },
       },
     );
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
         start: "top 60%",
         end: "top -50%",
         // markers: true,
-        scrub: 0.4,
+        scrub: true,
       },
     });
     if (window.innerWidth > 768) {
@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
         start: "top bottom",
         end: "bottom -20%",
         scrub: 0.4,
-        markers: true,
+        // markers: true,
       },
     });
 
@@ -251,6 +251,44 @@ document.addEventListener("DOMContentLoaded", () => {
         x: "-100vw",
         y: 40,
         rotate: -300,
+      },
+      "<",
+    );
+  }
+  // Infos page anim
+  if (document.querySelector(".fares-page")) {
+    const faresTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".fares-page",
+        start: "top top",
+        end: "bottom top",
+        scrub: 0.4,
+        markers: true,
+      },
+    });
+
+    faresTl.to(".register-1", {
+      top: "unset",
+      bottom: 50,
+      rotate: -720,
+      scale: 1.5,
+    });
+    faresTl.to(
+      ".register-2",
+      {
+        top: "unset",
+        bottom: -10,
+        rotate: -400,
+      },
+      "<",
+    );
+    faresTl.to(
+      ".register-3",
+      {
+        top: "unset",
+        bottom: -140,
+        rotate: 370,
+        scale: 0.8,
       },
       "<",
     );

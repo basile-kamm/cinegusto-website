@@ -12,7 +12,7 @@
 }
 
 .background.image.edelweiss {
-  @apply bg-[url(../img/edelweiss-background.jpg)];
+  @apply bg-[url(../img/edelweiss-background-mobile.jpg)] md:bg-[url(../img/edelweiss-background.jpg)];
 }
 
 .basic-page {

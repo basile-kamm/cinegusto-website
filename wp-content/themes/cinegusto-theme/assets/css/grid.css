@@ -3,7 +3,7 @@
     @apply grid grid-cols-4 gap-x-20 px-8 lg:grid-cols-12;
   }
 
-  .grid > * {
+  .grid > *:not(.absolute) {
     @apply col-span-4 lg:col-span-8 lg:col-start-3 lg:col-end-11;
   }
 

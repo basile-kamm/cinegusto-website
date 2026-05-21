@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
           trigger: ".canap-container",
           start: "top 60%",
           end: "top -50%",
-          scrub: true,
+          scrub: 0.4,
         },
       },
     );
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
           trigger: ".canap-container",
           start: "top 60%",
           end: "top -50%",
-          scrub: true,
+          scrub: 0.4,
         },
       },
     );
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
         start: "top 60%",
         end: "top -50%",
         // markers: true,
-        scrub: true,
+        scrub: 0.4,
       },
     });
     if (window.innerWidth > 768) {
@@ -112,15 +112,14 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     }
   }
-  // Grue animation homepage
+  // Grue animation contact page
   if (document.querySelector(".page")) {
     const grueTl = gsap.timeline({
       scrollTrigger: {
         trigger: ".page",
         start: "top top",
         end: "50% 80%",
-        markers: true,
-        scrub: true,
+        scrub: 0.4,
       },
     });
     if (window.innerWidth > 768) {
@@ -158,5 +157,102 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       );
     }
+  }
+
+  // Infos page anim
+  if (document.querySelector(".infos-page")) {
+    gsap.to(".megaphone", {
+      rotate: 0,
+      scrollTrigger: {
+        trigger: ".megaphone",
+        start: "top 50%",
+        end: "top top",
+        scrub: 0.4,
+        // markers: true,
+      },
+    });
+
+    gsap.to(".car", {
+      y: -100,
+      x: "200%",
+      scrollTrigger: {
+        trigger: ".car",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 0.4,
+        // markers: true,
+      },
+    });
+
+    gsap.to(".bus", {
+      y: 80,
+      x: "-100%",
+      scrollTrigger: {
+        trigger: ".bus",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 0.4,
+        // markers: true,
+      },
+    });
+
+    const serviceTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#plan",
+        start: "top bottom",
+        end: "bottom -20%",
+        scrub: 0.4,
+        markers: true,
+      },
+    });
+
+    serviceTl.to(".service-1-1", {
+      x: "-100vw",
+      y: -30,
+      rotate: -720,
+    });
+    serviceTl.to(
+      ".service-1-2",
+      {
+        x: "-80vw",
+        rotate: 520,
+      },
+      "<",
+    );
+    serviceTl.to(
+      ".service-2-2",
+      {
+        x: "-100vw",
+        rotate: 420,
+      },
+      "<",
+    );
+    serviceTl.to(
+      ".service-2-1",
+      {
+        x: "-80vw",
+        y: 40,
+        rotate: 600,
+      },
+      "<",
+    );
+    serviceTl.to(
+      ".service-3-2",
+      {
+        x: "-100vw",
+        rotate: -720,
+        y: 120,
+      },
+      "<",
+    );
+    serviceTl.to(
+      ".service-3-1",
+      {
+        x: "-100vw",
+        y: 40,
+        rotate: -300,
+      },
+      "<",
+    );
   }
 });

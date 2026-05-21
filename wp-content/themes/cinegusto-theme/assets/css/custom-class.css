@@ -93,3 +93,40 @@
 .hover-btn {
   @apply bg-black px-4 py-3 text-creme text-l absolute -translate-y-1/1 whitespace-nowrap;
 }
+
+.idle {
+  animation: Idling 3s infinite step-end;
+}
+
+@keyframes Idling {
+  0% {
+    rotate: 10deg;
+  }
+  50% {
+    rotate: -10deg;
+  }
+  100% {
+    rotate: 10deg;
+  }
+}
+
+.grue-1,
+.grue-2 {
+  animation: Fly 1s infinite step-end;
+}
+
+.grue-2 {
+  animation-delay: 0.5s;
+}
+
+@keyframes Fly {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 100;
+  }
+  100% {
+    opacity: 0;
+  }
+}

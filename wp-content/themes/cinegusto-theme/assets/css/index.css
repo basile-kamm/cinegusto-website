@@ -27,3 +27,7 @@ h6,
 *::selection {
   @apply bg-red text-creme;
 }
+
+[x-cloak] {
+  display: none !important;
+}
